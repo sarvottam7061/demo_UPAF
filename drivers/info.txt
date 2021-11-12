@@ -1,0 +1,1 @@
+If the firewall or security settings is preventing you from using webdriver manager, use this folders with driver path

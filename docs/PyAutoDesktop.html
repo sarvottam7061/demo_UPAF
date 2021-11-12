@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>PyAuto.PyAutoDesktop API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PyAuto.PyAutoDesktop</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows"><code class="flex name class">
+<span>class <span class="ident">PyAutoWindows</span></span>
+<span>(</span><span>app)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.bring_window_to_foreground"><code class="name flex">
+<span>def <span class="ident">bring_window_to_foreground</span></span>(<span>self, app=None, window_handle=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>brings the given window to foreground.
+Args:
+app: for pywinauto send child window object.
+window_handle: for winappdriver send window handle</p>
+<pre><code>Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_disabled"><code class="name flex">
+<span>def <span class="ident">button_should_be_disabled</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>assert that the button should be disabled.</p>
+<pre><code>Args:
+    locator: locator of type dictionary of element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_enabled"><code class="name flex">
+<span>def <span class="ident">button_should_be_enabled</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>assert that the button should be enabled.</p>
+<pre><code>Args:
+    locator: locator of element of type dictionary.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_checked"><code class="name flex">
+<span>def <span class="ident">checkbox_should_be_checked</span></span>(<span>self, checkbox_locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>assert that the given checkbox element should be checked.</p>
+<pre><code>Args:
+    checkbox_locator: locator of element of type dictionary.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_unchecked"><code class="name flex">
+<span>def <span class="ident">checkbox_should_be_unchecked</span></span>(<span>self, checkbox_locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>assert that the given checkbox element should NOT be checked.</p>
+<pre><code>Args:
+    checkbox_locator: locator of type dictionary to locate checkbox control element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.clear_all_text"><code class="name flex">
+<span>def <span class="ident">clear_all_text</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>clear the all text of the element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.click_wait_locator"><code class="name flex">
+<span>def <span class="ident">click_wait_locator</span></span>(<span>self, locator, wait_for='enabled', timeout=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find an element and click after waiting for the element to be enabled.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    wait_for: 'exists' means that the window is a valid handle
+              'visible' means that the window is not hidden
+              'enabled' means that the window is not disabled
+              'ready' means that the window is visible and enabled
+              'active' means that the window is active
+    timeout: maximum time to search for element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.double_click_element"><code class="name flex">
+<span>def <span class="ident">double_click_element</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>double click the element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.element_should_be_visible"><code class="name flex">
+<span>def <span class="ident">element_should_be_visible</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>asserts that the given element should be visible.</p>
+<pre><code>Args:
+    locator: locator of element of type dictionary.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.element_text_should_be"><code class="name flex">
+<span>def <span class="ident">element_text_should_be</span></span>(<span>self, locator, expected_text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It will Assert True if the expected_text is EQUAL to element text.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    expected_text: the expected text of the element.
+
+Returns: returns TRUE or FALSE.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.find_element_wait"><code class="name flex">
+<span>def <span class="ident">find_element_wait</span></span>(<span>self, locator, wait_for='visible', timeout=10, interval=0.2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find element after waiting for given condition.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+                Ex: locator = {"auto_id": "8047", "title": "New:", "class_name": "Button"}
+    wait_for: for winappdriver wait_for could be:
+              'visible' means that the element is visible
+              'presence' means that the element is present
+              'clickable' means that the element is clickable
+              for pywinauto wait_for could be:
+              'exists' means that the window is a valid handle
+              'visible' means that the window is not hidden
+              'enabled' means that the window is not disabled
+              'ready' means that the window is visible and enabled
+              'active' means that the window is active
+    timeout: maximum time to search for element.
+    interval:time interval for repeated search of element until timeout.
+
+Returns: returns element
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.find_elements"><code class="name flex">
+<span>def <span class="ident">find_elements</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.get_automation_id"><code class="name flex">
+<span>def <span class="ident">get_automation_id</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>fetch and returns the automation id of element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+
+Returns: returns the automation id of element.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.get_element_text"><code class="name flex">
+<span>def <span class="ident">get_element_text</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the text of given element</p>
+<pre><code>Args:
+    locator: locator of element of type dictionary.
+
+Returns: text of element as list.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.get_list_item_count"><code class="name flex">
+<span>def <span class="ident">get_list_item_count</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the count of items in list control element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element of list control.
+
+Returns: returns the count of items.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.get_list_items"><code class="name flex">
+<span>def <span class="ident">get_list_items</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>fetch the list of items and returns the list.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element of list control.
+
+Returns: list of items.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.get_parent_of_element"><code class="name flex">
+<span>def <span class="ident">get_parent_of_element</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>fetch the parent of the given element.</p>
+<pre><code>Args:
+    locator: for pywinauto: locator of element of type dictionary.
+             for winappdriver: xpath is required in locator list.
+
+Returns: parent of the element
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.is_child_of"><code class="name flex">
+<span>def <span class="ident">is_child_of</span></span>(<span>self, child_locator, parent_locator=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>checks if the given child_locator is child of the given parent_locator and return true.</p>
+<pre><code>Args:
+    child_locator: locator of type dictionary to locate child element.
+    parent_locator: locator of type dictionary to locate parent element.
+
+Returns: returns TRUE or FALSE
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.mouse_drag_and_drop_by_offset"><code class="name flex">
+<span>def <span class="ident">mouse_drag_and_drop_by_offset</span></span>(<span>self, locator, x_offset, y_offset, src=None, button='left', pressed='', absolute=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>drag and drop the element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    x_offset: x_offset coordinate.
+    y_offset: y_offset coordinate.
+    src: source wrapper object or coordinates.. if src is None the self is used as a source object.
+    button: is a mouse button to hold during the drag.
+            It can be "left", "right", "middle" or "x"
+    pressed: a key on the keyboard to press during the drag.
+    absolute: specifies whether to use absolute coordinates
+              for the mouse pointer locations
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_coordinate"><code class="name flex">
+<span>def <span class="ident">right_click_at_coordinate</span></span>(<span>self, x_offset, y_offset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>mouse right click at given coordinates.</p>
+<pre><code>Args:
+    x_offset: pixels value to click on x-offset
+    y_offset: pixels to click on y-offset
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_element"><code class="name flex">
+<span>def <span class="ident">right_click_at_element</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>mouse right click at the given element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.select_dropdown_value"><code class="name flex">
+<span>def <span class="ident">select_dropdown_value</span></span>(<span>self, locator, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>selects the value from dropdown.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    value: the value to select from dropdown.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.sleep"><code class="name flex">
+<span>def <span class="ident">sleep</span></span>(<span>self, sleep_time=3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hard wait in seconds</p>
+<pre><code>Args:
+    sleep_time: time to sleep the thread in seconds. defaults to 3 -&gt;
+                can override seconds by passing it
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.take_screenshot"><code class="name flex">
+<span>def <span class="ident">take_screenshot</span></span>(<span>self, screenshot_name=None, screenshot_folder='D:\\resources\\screenshots\\windows_screenshot/')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Take screenshot and save the test with user input name. If no name is provided, test name will be fetched</p>
+<pre><code>Args:
+    screenshot_name: pass the name to save or it will fetch the test name for pytest by default. if you
+                     are not using pytest, the name will be screenshot + date time
+    screenshot_folder: path to save screenshot in, defaults to screenshot folder in pyautomation framework,
+                       if using pyauto package, the default value is None and should be overridden if not the
+                       screenshot file to be in saved in same folder as execution
+
+Returns: object of the inherited page class to facilitate method chaining
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.wait"><code class="name flex">
+<span>def <span class="ident">wait</span></span>(<span>self, timeout=10)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_enabled"><code class="name flex">
+<span>def <span class="ident">wait_element_enabled</span></span>(<span>self, locator, timeout=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>wait till the element got enabled and returns the element.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to the element. Ex: locator = {"auto_id" : "4894"}
+    timeout: maximum time to search for element.
+
+Returns: returns element
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_visibility"><code class="name flex">
+<span>def <span class="ident">wait_element_visibility</span></span>(<span>self, locator, timeout=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find an element and waiting for the element to be visible.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    timeout: maximum time to search for element visibility.
+
+Returns: returns element
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoDesktop.PyAutoWindows.wait_enter_text"><code class="name flex">
+<span>def <span class="ident">wait_enter_text</span></span>(<span>self, locator, text, wait_for='enabled', timeout=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find an element and enter text after waiting for the element to be enabled.</p>
+<pre><code>Args:
+    locator: locator of type dictionary to locate app element.
+    text: text to be entered.
+    wait_for: 'exists' means that the window is a valid handle
+              'visible' means that the window is not hidden
+              'enabled' means that the window is not disabled
+              'ready' means that the window is visible and enabled
+              'active' means that the window is active
+    timeout: maximum time to search for element.
+
+Returns: object of the inherited page to facilitate method chaining
+</code></pre></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PyAuto" href="index.html">PyAuto</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows" href="#PyAuto.PyAutoDesktop.PyAutoWindows">PyAutoWindows</a></code></h4>
+<ul class="">
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.bring_window_to_foreground" href="#PyAuto.PyAutoDesktop.PyAutoWindows.bring_window_to_foreground">bring_window_to_foreground</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_disabled" href="#PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_disabled">button_should_be_disabled</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_enabled" href="#PyAuto.PyAutoDesktop.PyAutoWindows.button_should_be_enabled">button_should_be_enabled</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_checked" href="#PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_checked">checkbox_should_be_checked</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_unchecked" href="#PyAuto.PyAutoDesktop.PyAutoWindows.checkbox_should_be_unchecked">checkbox_should_be_unchecked</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.clear_all_text" href="#PyAuto.PyAutoDesktop.PyAutoWindows.clear_all_text">clear_all_text</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.click_wait_locator" href="#PyAuto.PyAutoDesktop.PyAutoWindows.click_wait_locator">click_wait_locator</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.double_click_element" href="#PyAuto.PyAutoDesktop.PyAutoWindows.double_click_element">double_click_element</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.element_should_be_visible" href="#PyAuto.PyAutoDesktop.PyAutoWindows.element_should_be_visible">element_should_be_visible</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.element_text_should_be" href="#PyAuto.PyAutoDesktop.PyAutoWindows.element_text_should_be">element_text_should_be</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.find_element_wait" href="#PyAuto.PyAutoDesktop.PyAutoWindows.find_element_wait">find_element_wait</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.find_elements" href="#PyAuto.PyAutoDesktop.PyAutoWindows.find_elements">find_elements</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.get_automation_id" href="#PyAuto.PyAutoDesktop.PyAutoWindows.get_automation_id">get_automation_id</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.get_element_text" href="#PyAuto.PyAutoDesktop.PyAutoWindows.get_element_text">get_element_text</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.get_list_item_count" href="#PyAuto.PyAutoDesktop.PyAutoWindows.get_list_item_count">get_list_item_count</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.get_list_items" href="#PyAuto.PyAutoDesktop.PyAutoWindows.get_list_items">get_list_items</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.get_parent_of_element" href="#PyAuto.PyAutoDesktop.PyAutoWindows.get_parent_of_element">get_parent_of_element</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.is_child_of" href="#PyAuto.PyAutoDesktop.PyAutoWindows.is_child_of">is_child_of</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.mouse_drag_and_drop_by_offset" href="#PyAuto.PyAutoDesktop.PyAutoWindows.mouse_drag_and_drop_by_offset">mouse_drag_and_drop_by_offset</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_coordinate" href="#PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_coordinate">right_click_at_coordinate</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_element" href="#PyAuto.PyAutoDesktop.PyAutoWindows.right_click_at_element">right_click_at_element</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.select_dropdown_value" href="#PyAuto.PyAutoDesktop.PyAutoWindows.select_dropdown_value">select_dropdown_value</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.sleep" href="#PyAuto.PyAutoDesktop.PyAutoWindows.sleep">sleep</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.take_screenshot" href="#PyAuto.PyAutoDesktop.PyAutoWindows.take_screenshot">take_screenshot</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.wait" href="#PyAuto.PyAutoDesktop.PyAutoWindows.wait">wait</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_enabled" href="#PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_enabled">wait_element_enabled</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_visibility" href="#PyAuto.PyAutoDesktop.PyAutoWindows.wait_element_visibility">wait_element_visibility</a></code></li>
+<li><code><a title="PyAuto.PyAutoDesktop.PyAutoWindows.wait_enter_text" href="#PyAuto.PyAutoDesktop.PyAutoWindows.wait_enter_text">wait_enter_text</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

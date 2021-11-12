@@ -1,0 +1,2 @@
+2021-09-27 15:52:04,351 - faker.factory - DEBUG - Not in REPL -> leaving logger event level as is.
+2021-09-27 15:52:38,385 - root - ERROR - TimeoutException: Message: Timeout in finding the element by id txtUsernam

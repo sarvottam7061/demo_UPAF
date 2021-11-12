@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>PyAuto.PyAutoReadWrite API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PyAuto.PyAutoReadWrite</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite"><code class="flex name class">
+<span>class <span class="ident">ReadWrite</span></span>
+<span>(</span><span>filePath, fileName)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_excel"><code class="name flex">
+<span>def <span class="ident">get_parametrized_values_excel</span></span>(<span>td)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns data to pytest.mark.parametrize from excel sheet dataframe.</p>
+<pre><code>Args:
+    td: pandas dataframe, returned after loading an excel sheet.
+
+Returns: returns parametrized data required for data driven execution , list of list.
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_json"><code class="name flex">
+<span>def <span class="ident">get_parametrized_values_json</span></span>(<span>data, TC_ID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns data to pytest.mark.parametrize from json data</p>
+<pre><code>Args:
+    data: Test Data loaded from TestData.json
+    TC_ID: Test case id for Data driven execution
+
+Returns: returns list of rows from the test data json file suitable for data driven execution
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.load_json_file"><code class="name flex">
+<span>def <span class="ident">load_json_file</span></span>(<span>path_to_file)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class method to load json file and return json data</p>
+<pre><code>Args:
+    path_to_file: complete path to the file
+
+Returns: returns json data from file
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_General"><code class="name flex">
+<span>def <span class="ident">read_excel_cell_General</span></span>(<span>td, tc_id, column_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>To read an excel cell from TestData.xlsx general sheet</p>
+<pre><code>Args:
+    td: data frame loaded from TestData.xlsx -&gt; general sheet
+    tc_id: Case id from TestData.xlsx -&gt; general sheet
+    column_name: Column name of TestData.xlsx -&gt; general sheet
+
+Returns: String value from the cells
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_row_column"><code class="name flex">
+<span>def <span class="ident">read_excel_cell_row_column</span></span>(<span>td, row_index, column_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read excel cell by passing the row index and column name</p>
+<pre><code>Args:
+    td: pandas dataframe loaded from excel sheet
+    row_index: index number of the rows
+    column_name: name of the column
+
+Returns: The cell value based on the row index and column name passed
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.read_json_value"><code class="name flex">
+<span>def <span class="ident">read_json_value</span></span>(<span>data, TC_ID, index_num, keyValue)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read json value from the TC_ID and index num and key value</p>
+<pre><code>Args:
+    data: json data read from a file
+    TC_ID: TC_ID of execution
+    index_num: from different records of the data from the same test
+    keyValue: key value to be parsed
+
+Returns:
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.set_value_excel_cell"><code class="name flex">
+<span>def <span class="ident">set_value_excel_cell</span></span>(<span>td, row_num, column_name, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the value of a dataframe returned from excel load</p>
+<pre><code>Args:
+    td: pass data frame returned from excel
+    row_num: pass the row number in which value has to be set
+    column_name: pass the column name in which value has to be set
+    value: pass the value to be set
+
+Returns: return the Data frame after setting the value passed
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.set_value_json"><code class="name flex">
+<span>def <span class="ident">set_value_json</span></span>(<span>data, key, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Alter the value of json data based on the key and value passed</p>
+<pre><code>Args:
+    data: json to be altered
+    key: position of json to alter
+    value: value to be assigned for the key
+
+Returns: returns altered data
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.write_excel"><code class="name flex">
+<span>def <span class="ident">write_excel</span></span>(<span>td, write_file_name, write_sheet_name, filePath='D:\\testData/', include_index=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write the data frame to excel sheet</p>
+<pre><code>Args:
+    td: data frame returned after loading an excel sheet
+    write_file_name: file name of the excel work book
+    write_sheet_name: sheet name of the excel sheet
+    filePath: path to save excel file in, defaults to test data path in pyautomation framework, if using
+              pyauto package, the default value is None and should be overridden if not the excel file
+              to be saved in same folder
+    include_index: defaults to false, is the index to be included in excel sheet
+
+Returns: returns nothing
+</code></pre></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.load_excel"><code class="name flex">
+<span>def <span class="ident">load_excel</span></span>(<span>self, sheetName='General')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load an excel sheet into pandas data frame to access it in future</p>
+<pre><code>Args:
+    sheetName: defaults to General(from test data sheet), can be overridden to value passed
+
+Returns: returns the data frame as excel sheet
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.load_json"><code class="name flex">
+<span>def <span class="ident">load_json</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the json file based on the filepath and name assigned using ReadWrite object</p>
+<pre><code>Returns: returns the json data read from file
+</code></pre></div>
+</dd>
+<dt id="PyAuto.PyAutoReadWrite.ReadWrite.write_json"><code class="name flex">
+<span>def <span class="ident">write_json</span></span>(<span>self, json_data, fileName, filePath='D:\\testData/')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>write json_data in given file.</p>
+<pre><code>Args:
+    json_data:data to write in the file
+    fileName:jason file name, should be end with.json
+    filePath: set to `config.testDataPath, file path to json file
+
+Returns: None, does not return anything
+</code></pre></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PyAuto" href="index.html">PyAuto</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PyAuto.PyAutoReadWrite.ReadWrite" href="#PyAuto.PyAutoReadWrite.ReadWrite">ReadWrite</a></code></h4>
+<ul class="">
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_excel" href="#PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_excel">get_parametrized_values_excel</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_json" href="#PyAuto.PyAutoReadWrite.ReadWrite.get_parametrized_values_json">get_parametrized_values_json</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.load_excel" href="#PyAuto.PyAutoReadWrite.ReadWrite.load_excel">load_excel</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.load_json" href="#PyAuto.PyAutoReadWrite.ReadWrite.load_json">load_json</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.load_json_file" href="#PyAuto.PyAutoReadWrite.ReadWrite.load_json_file">load_json_file</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_General" href="#PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_General">read_excel_cell_General</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_row_column" href="#PyAuto.PyAutoReadWrite.ReadWrite.read_excel_cell_row_column">read_excel_cell_row_column</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.read_json_value" href="#PyAuto.PyAutoReadWrite.ReadWrite.read_json_value">read_json_value</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.set_value_excel_cell" href="#PyAuto.PyAutoReadWrite.ReadWrite.set_value_excel_cell">set_value_excel_cell</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.set_value_json" href="#PyAuto.PyAutoReadWrite.ReadWrite.set_value_json">set_value_json</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.write_excel" href="#PyAuto.PyAutoReadWrite.ReadWrite.write_excel">write_excel</a></code></li>
+<li><code><a title="PyAuto.PyAutoReadWrite.ReadWrite.write_json" href="#PyAuto.PyAutoReadWrite.ReadWrite.write_json">write_json</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

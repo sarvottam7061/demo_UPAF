@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Failed Tests Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 50px;
+  width: 500px
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 65%;
+}
+
+.right {
+  width: 35%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  clear: both;
+  display: block;
+  height: 1px;
+
+}
+.row{
+
+}
+
+.container {
+  width: 105%;
+  background-color: #fff;
+  padding: 0px
+
+}
+.tab-content{
+  background-color: #eee;
+}
+.active, .collapsible:hover, .collapsible.active{
+  background-color: #808080;
+}
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f2f2f2;
+}
+.collapsible {
+  background-color: brown;
+  color: white;
+  cursor: pointer;
+  width: 12%;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.container ul li a{
+  cursor: pointer;
+  color: #fff
+}
+.container ul li a:hover{
+    color: #000;
+}
+.nav-tabs li a{
+    background-color: black;
+    margin-right: 0px;
+    border-radius: 0px 0px 0 0;
+}
+
+.tab-pane ol{
+    background-color: #fff;
+}
+.graph{
+    background-color: #fff;
+    padding: 18px;
+}
+.block{
+  width: 80%;
+  padding: 18px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  background-color: #fff;
+
+}
+#myChart {
+    background-color: #fff;
+}
+
+
+.nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover{
+    background-color: #fff;
+    color: black;
+}
+.block-list{
+    border-bottom: 2px solid #999999;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row" >
+  <div class="column left">
+      <h2>Failed Tests</h2>
+      <br>
+    <div class="container">
+    <ul class="nav nav-tabs" style="background-color:#000;" >
+      {% for n in my_list %}
+        {% if loop.index==1 %}
+            <li class="active"><a href={{ "#"+n }}>{{ n }}</a></li>
+        {% else %}
+             <li><a href={{ "#"+n }}>{{ n }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    <div class="tab-content">
+        {% for n in my_list %}
+        {% if loop.index==1 %}
+            <div id={{ n }} class="tab-pane fade in active">
+                <ol>
+                    {% for i in analyzed_data[n] %}
+                <div class="block-list">
+                    <li><button type="button" class="block">{{ i[1] }}</button>
+                        {{ i[5] }}
+                        <button type="button" class="collapsible">{{ i[0] }}<i class="fa fa-caret-down" style="padding-left: 10px;"></i></button>
+                        <div class="content">
+                             <p><strong>Test Suite</strong>: {{ i[2] }}</p>
+                            <p><strong>Test Data</strong>: {{ i[3] }}</p>
+                            <p style="color: red;"><strong>Error</strong>: {{i [4] }}</p>
+                        </div></li>
+                    </div>
+                    {% endfor %}
+                
+                </ol>
+            </div>
+        {% else %}
+            <div id={{ n }} class="tab-pane fade">
+              <ol>
+                    {% for i in analyzed_data[n] %}
+                  <div class="block-list">
+                    <li><button type="button" class="block">{{ i[1] }}</button>
+                        <button type="button" class="block">{{ i[5] }}</button>
+                        <button type="button" class="collapsible">{{ i[0] }}<i class="fa fa-caret-down" style="padding-left: 10px;"></i></button>
+                        <div class="content">
+                            <p><strong>Test Suite</strong>: {{ i[2] }}</p>
+                            <p><strong>Test Data</strong>: {{ i[3] }}</p>
+                            <p style="color: red;"><strong>Error</strong>: {{i [4] }}</p>
+                        </div></li>
+                      </div>
+                    {% endfor %}
+                    
+                    </ol>
+                </div>
+                {% endif %}
+                {% endfor %}
+  </div>
+ </div>
+  </div>
+  <div class="column right">
+      <div class="graph">
+        <canvas id="myChart" style="width:800px;max-width:600px;height:500px"></canvas>
+      </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  });
+});
+</script>
+
+<script>
+var xValues = {{ my_list }};
+var yValues = {{ graph_count }};
+var barColors = ["blue", "violet","purple","orange","brown"];
+var barColor = barColors.slice(0, {{ my_list|length }})
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColor,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Failed Test Cases"
+    },
+    scales: {
+    yAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true 
+            }
+        }]
+        }
+  }
+});
+</script>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

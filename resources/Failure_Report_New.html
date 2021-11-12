@@ -1,0 +1,328 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>Failure Analysis Report</title>
+	  <link rel = "icon" href = "https://cognizantcorp.webex.com/brand_dlwd/948792/site_cognizantcorp/brand/ag.png" type = "image/x-icon">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <style> 
+         table, th, td { 
+         border: 1px solid black; 
+         border-collapse: collapse; 
+         } 
+         th, td { 
+         padding: 5px; 
+         } 
+         th { 
+         text-align: left; 
+         }
+         .nav-tabs {
+            border-bottom: none;
+         }
+      </style>
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+         /* Create two equal columns that floats next to each other */
+         .column {
+         float: left;
+         width: 50%;
+         padding: 10px;
+         height: 300px; /* Should be removed. Only for demonstration */
+         }
+         /* Clear floats after the columns */
+         .row:after {
+         content: "";
+         display: table;
+         clear: both;
+         }
+		 .topleft {
+         position: absolute;
+         top: -6px;
+         left: 50px;
+         font-size: 18px;
+         }
+         .topright {
+         position: absolute;
+         top: 15px;
+         right: 50px;
+         font-size: 18px;
+         }
+		 .center {
+         position: absolute;
+         top: 16px;
+         left: 39%;
+         font-size: 18px;
+         text-align: center;
+         }
+         .center-chart {
+         position: absolute;
+         top: 30px;
+         left: 39%;
+         font-size: 18px;
+         text-align: center;
+         }
+      </style>
+   </head>
+   <body style="background-color: white">
+      <div class="row" style="width: 1300px; height: 400px; margin: auto">
+	  
+		 <div class="column" id="#" style="width: 100%; height: 1%;"></div>
+		 <div class="center-chart" id="piechart" style="width: 100%; height: 35%; "></div>
+		 <a class="topright"><img src="https://cognizantcorp.webex.com/brand_dlwd/948792/site_cognizantcorp/brand/ag.png" style="width:91px;height:30px;"/></a>
+		 <a class="topleft"><img src="https://bellatrix.solutions/content/uploads/Allure_logo-600x243.png" style="width:180px;height:75px"/></a>
+         <a class="center"><h4 style="font-size: 22px;"><b>Failure Report Analysis & Prediction</b></h4></a>
+		 
+      </div>
+	  
+      <div class="chart_div" style="width: 1350px; height: auto; padding: 30px; margin: auto">
+	     <div class="nav nav-tabs">
+         <a class="active" href="#ObjectId"><button type="button" class="btn btn-info active" style="width:16.2%; background-color: #540094">Object Identification</button></a>
+         <a href="#TestData"><button type="button" class="btn btn-danger" style="width:16.2%; background-color: #FF0000">Test Data</button></a>
+         <a href="#TestScript"><button type="button" class="btn btn-warning"  style="width:16.2%; background-color: #ff9900">Test Script</button></a>
+         <a href="#EnvCon"><button type="button" class="btn btn-success" style="width:16.2%; background-color: #109618">Environment/Connection</button></a>
+         <a href="#Defect"><button type="button" class="btn btn-info" style="width:16.2%; background-color: #880085">Incident/Defects</button></a>
+         <a href="#Others"><button type="button" class="btn btn-info" style="width:16.2%; background-color: #24a0ed">Others</button></a>
+         </div>
+
+
+  <div class="tab-content">
+    <div id="ObjectId" class="tab-pane fade in active">
+      <h1>Object Identification</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+                {% if analyzed_data.get("Object Identification", None) %}
+                {% for i in analyzed_data["Object Identification"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                 <td colspan="5" style="text-align: center"> No failures due to Object Identification </td>
+                </tr>
+               {% endif %}
+            </table>
+    </div>
+    <div id="TestData" class="tab-pane fade">
+      <h1>Test Data</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+              {% if analyzed_data.get("Test Data", None) %}
+                {% for i in analyzed_data["Test Data"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                <td colspan="5" style="text-align: center"> No failures due to Test Data </td>
+                </tr>
+               {% endif %}
+            </table>
+    </div>
+    <div id="TestScript" class="tab-pane fade">
+      <h1>Test Script</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+              {% if analyzed_data.get("Test Script", None) %}
+                {% for i in analyzed_data["Test Script"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                <td colspan="5" style="text-align: center"> No failures due to Test Scripts </td>
+                </tr>
+               {% endif %}
+            </table>
+    </div>
+    <div id="EnvCon" class="tab-pane fade">
+      <h1>Environment/Connection</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+              {% if analyzed_data.get("Environment/Connection", None) %}
+                {% for i in analyzed_data["Environment/Connection"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                <td colspan="5" style="text-align: center"> No failures due to Environment/Connection </td>
+                </tr>
+               {% endif %}
+            </table>
+    </div>
+    <div id="Defect" class="tab-pane fade">
+      <h1>Incident/Defects</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+               {% if analyzed_data.get("Incident/Defect", None) %}
+                {% for i in analyzed_data["Incident/Defect"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                <td colspan="5" style="text-align: center"> No failures due to Incidents/Defects </td>
+                </tr>
+               {% endif %}
+            </table>
+        </div>
+         <div id="Others" class="tab-pane fade">
+      <h1>Others</h1>
+            <table style="width: 100%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:20%">
+               <col style="width:10%">
+                <col style="width:30%">
+               <tr>
+                  <th>Test Case Name</th>
+                  <th>Test Suite Name</th>
+                  <th>Test Data</th>
+                  <th>Time</th>
+                  <th>Error Log</th>
+               </tr>
+              {% if analyzed_data.get("Others", None) %}
+                {% for i in analyzed_data["Others"] %}
+               <tr>
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                  <td>{{ i[4] }}</td>
+                  <td>{{ i[3] }}</td>
+               </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                <td colspan="5" style="text-align: center"> No failures due to Other unkown reason </td>
+                </tr>
+               {% endif %}
+            </table>
+    
+  </div>
+
+    </div>
+      </div>
+   <script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['test catagory', 'failed tests'],
+  {% for j in graph_data %}
+    {{ j|string+"," }}
+   {% endfor %}
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = { title:'Failed Catogory',
+                  width:550,
+                  height:400,
+                  pieHole: 0.5,
+<!--                  legend: 'none',-->
+<!--           		  pieSliceText: 'label',-->
+                  };
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+          
+
+<script>
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  });
+});
+</script>
+
+   </body>
+</html>

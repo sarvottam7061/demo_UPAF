@@ -1,0 +1,4 @@
+ <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="https://httpbin.org/post">
+       <soapenv:Header/>
+       <soapenv:Body/>
+    </soapenv:Envelope>

@@ -1,0 +1,23 @@
+{
+  "TC-01":
+        [{"run": "yes","make": "Ford", "ep": "30", "dom": "11/12/2020", "noOFSeats": "5",
+        "fuel_type": "Petrol", "lp": "20000", "license_plate": "AX1234B65", "mileage": "10000"},
+        {"run": "no","make": "BMW", "ep": "20", "dom": "12/12/2020", "noOFSeats": "4",
+        "fuel_type": "Diesel", "lp": "30000", "license_plate": "AZ1234B75", "mileage": "20000"}],
+  "TC-02":
+        [{"run": "no","make": "Honda", "ep": "30", "dom": "11/12/2020", "noOFSeats": "3", "fuel_type": "Gas",
+          "lp": "20000", "license_plate": "AX1234B65", "mileage": "30000"}],
+  "TC-03":
+          [{"run": "yes", "country": "India", "capital": "New Delhi"},
+            {"run": "yes", "country": "Afghanistan", "capital": "Kabul"},
+            {"run": "yes", "country": "United States", "capital": "Washington"}
+
+          ],
+  "TC-04": [
+    {"run": "yes", "data": {"name": "${first_name}$", "job": "$r{website_IND}r$"}},
+    {"run": "yes","data":{"name": "$r{[A-Z][a-z]{3}}r$", "job": "leader"}},
+    {"run": "no","data":{"name": "test2", "job": "lead"}}
+  ]
+
+}
+

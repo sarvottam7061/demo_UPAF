@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>PyAuto.PyAutoSap API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PyAuto.PyAutoSap</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PyAuto.PyAutoSap.PyAutoSap"><code class="flex name class">
+<span>class <span class="ident">PyAutoSap</span></span>
+<span>(</span><span>screenshots_on_error=True, screenshot_directory=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The SapGuiLibrary is a library that enables users to create tests for the Sap Gui application</p>
+<p>The library uses the Sap Scripting Engine, therefore Scripting must be enabled in Sap in order for this library to work.</p>
+<p>= Opening a connection / Before running tests =</p>
+<p>First of all, you have to <em>make sure the Sap Logon Pad is started</em>. You can automate this process by using the
+AutoIT library or the Process Library.</p>
+<p>After the Sap Login Pad is started, you can connect to the Sap Session using the keyword <code>connect to session</code>.</p>
+<p>If you have a successful connection you can use <code>Open Connection</code> to open a new connection from the Sap Logon Pad
+or <code>Connect To Existing Connection</code> to connect to a connection that is already open.</p>
+<p>= Locating or specifying elements =</p>
+<p>You need to specify elements starting from the window ID, for example, wnd[0]/tbar[1]/btn[8]. In some cases the SAP
+ID contains backslashes. Make sure you escape these backslashes by adding another backslash in front of it.</p>
+<p>= Screenshots (on error) =</p>
+<p>The SapGUILibrary offers an option for automatic screenshots on error.
+Default this option is enabled, use keyword <code>disable screenshots on error</code> to skip the screenshot functionality.
+Alternatively, this option can be set at import.</p>
+<p>Sets default variables for the library</p></div>
+<h3>Class variables</h3>
+<dl>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.ROBOT_LIBRARY_SCOPE"><code class="name">var <span class="ident">ROBOT_LIBRARY_SCOPE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.click_element"><code class="name flex">
+<span>def <span class="ident">click_element</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a single click on a given element. Used only for buttons, tabs and menu items.</p>
+<p>In case you want to change a value of an element like checkboxes of selecting an option in dropdown lists,
+use <code>select checkbox</code> or <code>select from list by label</code> instead.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.click_toolbar_button"><code class="name flex">
+<span>def <span class="ident">click_toolbar_button</span></span>(<span>self, table_id, button_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clicks a button of a toolbar within a GridView 'table_id' which is contained within a shell object.
+Use the Scripting tracker recorder to find the 'button_id' of the button to click</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.connect_to_existing_connection"><code class="name flex">
+<span>def <span class="ident">connect_to_existing_connection</span></span>(<span>self, connection_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connects to an open connection. If the connection matches the given connection_name, the session is connected
+to this connection.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.connect_to_session"><code class="name flex">
+<span>def <span class="ident">connect_to_session</span></span>(<span>self, explicit_wait=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connects to an open session SAP.</p>
+<p>See <code>Opening a connection / Before running tests</code> for details about requirements before connecting to a session.</p>
+<p>Optionally <code>set explicit wait</code> can be used to set the explicit wait time.</p>
+<p><em>Examples</em>:
+| <em>Keyword</em>
+| <em>Attributes</em>
+|
+| connect to session
+|
+|
+| connect to session
+| 3
+|
+| connect to session
+| explicit_wait=500ms
+|</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.disable_screenshots_on_error"><code class="name flex">
+<span>def <span class="ident">disable_screenshots_on_error</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Disables automatic screenshots on error.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.doubleclick_element"><code class="name flex">
+<span>def <span class="ident">doubleclick_element</span></span>(<span>self, element_id, item_id, column_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a double-click on a given element. Used only for shell objects.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.element_should_be_present"><code class="name flex">
+<span>def <span class="ident">element_should_be_present</span></span>(<span>self, element_id, message=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks whether an element is present on the screen.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.element_value_should_be"><code class="name flex">
+<span>def <span class="ident">element_value_should_be</span></span>(<span>self, element_id, expected_value, message=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks whether the element value is the same as the expected value.
+The possible expected values depend on the type of element (see usage).</p>
+<p>Usage:
+| <em>Element type</em>
+| <em>possible values</em>
+|
+| textfield
+| text
+|
+| label
+| text
+|
+| checkbox
+| checked / unchecked
+|
+| radiobutton
+| checked / unchecked
+|
+| combobox
+| text of the option to be expected |</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.element_value_should_contain"><code class="name flex">
+<span>def <span class="ident">element_value_should_contain</span></span>(<span>self, element_id, expected_value, message=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks whether the element value contains the expected value.
+The possible expected values depend on the type of element (see usage).</p>
+<p>Usage:
+| <em>Element type</em>
+| <em>possible values</em>
+|
+| textfield
+| text
+|
+| label
+| text
+|
+| combobox
+| text of the option to be expected |</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.enable_screenshots_on_error"><code class="name flex">
+<span>def <span class="ident">enable_screenshots_on_error</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Enables automatic screenshots on error.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_cell_value"><code class="name flex">
+<span>def <span class="ident">get_cell_value</span></span>(<span>self, table_id, row_num, col_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the cell value for the specified cell.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_element_location"><code class="name flex">
+<span>def <span class="ident">get_element_location</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Sap element location for the given element.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_element_type"><code class="name flex">
+<span>def <span class="ident">get_element_type</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Sap element type for the given element.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_row_count"><code class="name flex">
+<span>def <span class="ident">get_row_count</span></span>(<span>self, table_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of rows found in the specified table.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_scroll_position"><code class="name flex">
+<span>def <span class="ident">get_scroll_position</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the scroll position of the scrollbar of an element 'element_id' that is contained within a shell object.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the value of the given element. The possible return values depend on the type of element (see Return values).</p>
+<p>Return values:
+| <em>Element type</em>
+| <em>Return values</em>
+|
+| textfield
+| text
+|
+| label
+| text
+|
+| checkbox
+| checked / unchecked
+|
+| radiobutton
+| checked / unchecked
+|
+| combobox
+| text of the selected option
+|
+| guibutton
+| text
+|
+| guititlebar
+| text
+|
+| guistatusbar
+| text
+|
+| guitab
+| text
+|</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.get_window_title"><code class="name flex">
+<span>def <span class="ident">get_window_title</span></span>(<span>self, locator)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves the window title of the given window.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.input_password"><code class="name flex">
+<span>def <span class="ident">input_password</span></span>(<span>self, element_id, password)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inserts the given password into the text field identified by locator.
+The password is not recorded in the log.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.input_text"><code class="name flex">
+<span>def <span class="ident">input_text</span></span>(<span>self, element_id, text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inserts the given text into the text field identified by locator.
+Use keyword <code>input password</code> to insert a password in a text field.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.maximize_window"><code class="name flex">
+<span>def <span class="ident">maximize_window</span></span>(<span>self, window=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Maximizes the SapGui window.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.open_connection"><code class="name flex">
+<span>def <span class="ident">open_connection</span></span>(<span>self, connection_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Opens a connection to the given connection name. Be sure to provide the full connection name, including the bracket part.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.run_transaction"><code class="name flex">
+<span>def <span class="ident">run_transaction</span></span>(<span>self, transaction)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs a Sap transaction. An error is given when an unknown transaction is specified.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.scroll"><code class="name flex">
+<span>def <span class="ident">scroll</span></span>(<span>self, element_id, position)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scrolls the scrollbar of an element 'element_id' that is contained within a shell object.
+'Position' is the number of rows to scroll.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_checkbox"><code class="name flex">
+<span>def <span class="ident">select_checkbox</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects checkbox identified by locator.
+Does nothing if the checkbox is already selected.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_context_menu_item"><code class="name flex">
+<span>def <span class="ident">select_context_menu_item</span></span>(<span>self, element_id, menu_or_button_id, item_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects an item from the context menu by clicking a button or right-clicking in the node context menu.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_from_list_by_label"><code class="name flex">
+<span>def <span class="ident">select_from_list_by_label</span></span>(<span>self, element_id, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects the specified option from the selection list.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_node"><code class="name flex">
+<span>def <span class="ident">select_node</span></span>(<span>self, tree_id, node_id, expand=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects a node of a TableTreeControl 'tree_id' which is contained within a shell object.</p>
+<p>Use the Scripting tracker recorder to find the 'node_id' of the node.
+Expand can be set to True to expand the node. If the node cannot be expanded, no error is given.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_node_link"><code class="name flex">
+<span>def <span class="ident">select_node_link</span></span>(<span>self, tree_id, link_id1, link_id2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects a link of a TableTreeControl 'tree_id' which is contained within a shell object.</p>
+<p>Use the Scripting tracker recorder to find the 'link_id1' and 'link_id2' of the link to select.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_radio_button"><code class="name flex">
+<span>def <span class="ident">select_radio_button</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets radio button to the specified value.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_table_column"><code class="name flex">
+<span>def <span class="ident">select_table_column</span></span>(<span>self, table_id, column_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects an entire column of a GridView 'table_id' which is contained within a shell object.</p>
+<p>Use the Scripting tracker recorder to find the 'column_id' of the column to select.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.select_table_row"><code class="name flex">
+<span>def <span class="ident">select_table_row</span></span>(<span>self, table_id, row_num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Selects an entire row of a table. This can either be a TableControl or a GridView 'table_id'
+which is contained within a shell object. The row is an index to select the row, starting from 0.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.send_vkey"><code class="name flex">
+<span>def <span class="ident">send_vkey</span></span>(<span>self, vkey_id, window=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends a SAP virtual key combination to the window, not into an element.
+If you want to send a value to a text field, use <code>input text</code> instead.</p>
+<p>To send a vkey, you can either use te <em>VKey ID</em> or the <em>Key combination</em>.</p>
+<p>Sap Virtual Keys (on Windows)
+| <em>VKey ID</em> | <em>Key combination</em>
+| <em>VKey ID</em> | <em>Key combination</em>
+| <em>VKey ID</em> | <em>Key combination</em>
+|
+| <em>0</em>
+| Enter
+| <em>26</em>
+| Ctrl + F2
+| <em>72</em>
+| Ctrl + A
+|
+| <em>1</em>
+| F1
+| <em>27</em>
+| Ctrl + F3
+| <em>73</em>
+| Ctrl + D
+|
+| <em>2</em>
+| F2
+| <em>28</em>
+| Ctrl + F4
+| <em>74</em>
+| Ctrl + N
+|
+| <em>3</em>
+| F3
+| <em>29</em>
+| Ctrl + F5
+| <em>75</em>
+| Ctrl + O
+|
+| <em>4</em>
+| F4
+| <em>30</em>
+| Ctrl + F6
+| <em>76</em>
+| Shift + Del
+|
+| <em>5</em>
+| F5
+| <em>31</em>
+| Ctrl + F7
+| <em>77</em>
+| Ctrl + Ins
+|
+| <em>6</em>
+| F6
+| <em>32</em>
+| Ctrl + F8
+| <em>78</em>
+| Shift + Ins
+|
+| <em>7</em>
+| F7
+| <em>33</em>
+| Ctrl + F9
+| <em>79</em>
+| Alt + Backspace
+|
+| <em>8</em>
+| F8
+| <em>34</em>
+| Ctrl + F10
+| <em>80</em>
+| Ctrl + Page Up
+|
+| <em>9</em>
+| F9
+| <em>35</em>
+| Ctrl + F11
+| <em>81</em>
+| Page Up
+|
+| <em>10</em>
+| F10
+| <em>36</em>
+| Ctrl + F12
+| <em>82</em>
+| Page Down
+|
+| <em>11</em>
+| F11 or Ctrl + S
+| <em>37</em>
+| Ctrl + Shift + F1
+| <em>83</em>
+| Ctrl + Page Down
+|
+| <em>12</em>
+| F12 or ESC
+| <em>38</em>
+| Ctrl + Shift + F2
+| <em>84</em>
+| Ctrl + G
+|
+| <em>14</em>
+| Shift + F2
+| <em>39</em>
+| Ctrl + Shift + F3
+| <em>85</em>
+| Ctrl + R
+|
+| <em>15</em>
+| Shift + F3
+| <em>40</em>
+| Ctrl + Shift + F4
+| <em>86</em>
+| Ctrl + P
+|
+| <em>16</em>
+| Shift + F4
+| <em>41</em>
+| Ctrl + Shift + F5
+| <em>87</em>
+| Ctrl + B
+|
+| <em>17</em>
+| Shift + F5
+| <em>42</em>
+| Ctrl + Shift + F6
+| <em>88</em>
+| Ctrl + K
+|
+| <em>18</em>
+| Shift + F6
+| <em>43</em>
+| Ctrl + Shift + F7
+| <em>89</em>
+| Ctrl + T
+|
+| <em>19</em>
+| Shift + F7
+| <em>44</em>
+| Ctrl + Shift + F8
+| <em>90</em>
+| Ctrl + Y
+|
+| <em>20</em>
+| Shift + F8
+| <em>45</em>
+| Ctrl + Shift + F9
+| <em>91</em>
+| Ctrl + X
+|
+| <em>21</em>
+| Shift + F9
+| <em>46</em>
+| Ctrl + Shift + F10
+| <em>92</em>
+| Ctrl + C
+|
+| <em>22</em>
+| Ctrl + Shift + 0
+| <em>47</em>
+| Ctrl + Shift + F11
+| <em>93</em>
+| Ctrl + V
+|
+| <em>23</em>
+| Shift + F11
+| <em>48</em>
+| Ctrl + Shift + F12
+| <em>94</em>
+| Shift + F10
+|
+| <em>24</em>
+| Shift + F12
+| <em>70</em>
+| Ctrl + E
+| <em>97</em>
+| Ctrl + #
+|
+| <em>25</em>
+| Ctrl + F1
+| <em>71</em>
+| Ctrl + F
+|
+|
+|</p>
+<p>Examples:
+| <em>Keyword</em>
+| <em>Attributes</em>
+|
+|
+| send_vkey
+| 8
+|
+|
+| send_vkey
+| Ctrl + Shift + F1 |
+|
+| send_vkey
+| Ctrl + F7
+| window=1
+|</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.set_cell_value"><code class="name flex">
+<span>def <span class="ident">set_cell_value</span></span>(<span>self, table_id, row_num, col_id, text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the cell value for the specified cell of a GridView 'table_id' which is contained within a shell object.</p>
+<p>Use the Scripting tracker recorder to find the 'col_id' of the cell to set.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.set_explicit_wait"><code class="name flex">
+<span>def <span class="ident">set_explicit_wait</span></span>(<span>self, speed)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the delay time that is waited after each SapGui keyword.</p>
+<p>The value can be given as a number that is considered to be seconds or as a human-readable string like 1 second
+or 700 ms.</p>
+<p>This functionality is designed to be used for demonstration and debugging purposes. It is not advised to use
+this keyword to wait for an element to appear or function to finish.</p>
+<p><em>Possible time formats:</em>
+| miliseconds
+| milliseconds, millisecond, millis, ms |
+| seconds
+| seconds, second, secs, sec, s
+|
+| minutes
+| minutes, minute, mins, min, m
+|</p>
+<p><em>Example:</em>
+| <em>Keyword</em>
+| <em>Attributes</em>
+|
+| Set explicit wait | 1
+|
+| Set explicit wait | 3 seconds
+|
+| Set explicit wait | 500 ms
+|</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.set_focus"><code class="name flex">
+<span>def <span class="ident">set_focus</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the focus to the given element.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.take_screenshot"><code class="name flex">
+<span>def <span class="ident">take_screenshot</span></span>(<span>self, screenshot_name='sap-screenshot')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Takes a screenshot, only if 'screenshots on error' has been enabled,
+either at import of with keyword <code>enable screenshots on error</code>.</p>
+<p>This keyword uses Robots' internal <code>Screenshot</code> library.</p></div>
+</dd>
+<dt id="PyAuto.PyAutoSap.PyAutoSap.unselect_checkbox"><code class="name flex">
+<span>def <span class="ident">unselect_checkbox</span></span>(<span>self, element_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes selection of checkbox identified by locator.
+Does nothing if the checkbox is not selected.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PyAuto" href="index.html">PyAuto</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PyAuto.PyAutoSap.PyAutoSap" href="#PyAuto.PyAutoSap.PyAutoSap">PyAutoSap</a></code></h4>
+<ul class="">
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.ROBOT_LIBRARY_SCOPE" href="#PyAuto.PyAutoSap.PyAutoSap.ROBOT_LIBRARY_SCOPE">ROBOT_LIBRARY_SCOPE</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.click_element" href="#PyAuto.PyAutoSap.PyAutoSap.click_element">click_element</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.click_toolbar_button" href="#PyAuto.PyAutoSap.PyAutoSap.click_toolbar_button">click_toolbar_button</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.connect_to_existing_connection" href="#PyAuto.PyAutoSap.PyAutoSap.connect_to_existing_connection">connect_to_existing_connection</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.connect_to_session" href="#PyAuto.PyAutoSap.PyAutoSap.connect_to_session">connect_to_session</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.disable_screenshots_on_error" href="#PyAuto.PyAutoSap.PyAutoSap.disable_screenshots_on_error">disable_screenshots_on_error</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.doubleclick_element" href="#PyAuto.PyAutoSap.PyAutoSap.doubleclick_element">doubleclick_element</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.element_should_be_present" href="#PyAuto.PyAutoSap.PyAutoSap.element_should_be_present">element_should_be_present</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.element_value_should_be" href="#PyAuto.PyAutoSap.PyAutoSap.element_value_should_be">element_value_should_be</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.element_value_should_contain" href="#PyAuto.PyAutoSap.PyAutoSap.element_value_should_contain">element_value_should_contain</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.enable_screenshots_on_error" href="#PyAuto.PyAutoSap.PyAutoSap.enable_screenshots_on_error">enable_screenshots_on_error</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_cell_value" href="#PyAuto.PyAutoSap.PyAutoSap.get_cell_value">get_cell_value</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_element_location" href="#PyAuto.PyAutoSap.PyAutoSap.get_element_location">get_element_location</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_element_type" href="#PyAuto.PyAutoSap.PyAutoSap.get_element_type">get_element_type</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_row_count" href="#PyAuto.PyAutoSap.PyAutoSap.get_row_count">get_row_count</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_scroll_position" href="#PyAuto.PyAutoSap.PyAutoSap.get_scroll_position">get_scroll_position</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_value" href="#PyAuto.PyAutoSap.PyAutoSap.get_value">get_value</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.get_window_title" href="#PyAuto.PyAutoSap.PyAutoSap.get_window_title">get_window_title</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.input_password" href="#PyAuto.PyAutoSap.PyAutoSap.input_password">input_password</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.input_text" href="#PyAuto.PyAutoSap.PyAutoSap.input_text">input_text</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.maximize_window" href="#PyAuto.PyAutoSap.PyAutoSap.maximize_window">maximize_window</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.open_connection" href="#PyAuto.PyAutoSap.PyAutoSap.open_connection">open_connection</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.run_transaction" href="#PyAuto.PyAutoSap.PyAutoSap.run_transaction">run_transaction</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.scroll" href="#PyAuto.PyAutoSap.PyAutoSap.scroll">scroll</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_checkbox" href="#PyAuto.PyAutoSap.PyAutoSap.select_checkbox">select_checkbox</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_context_menu_item" href="#PyAuto.PyAutoSap.PyAutoSap.select_context_menu_item">select_context_menu_item</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_from_list_by_label" href="#PyAuto.PyAutoSap.PyAutoSap.select_from_list_by_label">select_from_list_by_label</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_node" href="#PyAuto.PyAutoSap.PyAutoSap.select_node">select_node</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_node_link" href="#PyAuto.PyAutoSap.PyAutoSap.select_node_link">select_node_link</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_radio_button" href="#PyAuto.PyAutoSap.PyAutoSap.select_radio_button">select_radio_button</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_table_column" href="#PyAuto.PyAutoSap.PyAutoSap.select_table_column">select_table_column</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.select_table_row" href="#PyAuto.PyAutoSap.PyAutoSap.select_table_row">select_table_row</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.send_vkey" href="#PyAuto.PyAutoSap.PyAutoSap.send_vkey">send_vkey</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.set_cell_value" href="#PyAuto.PyAutoSap.PyAutoSap.set_cell_value">set_cell_value</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.set_explicit_wait" href="#PyAuto.PyAutoSap.PyAutoSap.set_explicit_wait">set_explicit_wait</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.set_focus" href="#PyAuto.PyAutoSap.PyAutoSap.set_focus">set_focus</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.take_screenshot" href="#PyAuto.PyAutoSap.PyAutoSap.take_screenshot">take_screenshot</a></code></li>
+<li><code><a title="PyAuto.PyAutoSap.PyAutoSap.unselect_checkbox" href="#PyAuto.PyAutoSap.PyAutoSap.unselect_checkbox">unselect_checkbox</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
